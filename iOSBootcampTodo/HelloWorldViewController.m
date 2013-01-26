@@ -101,7 +101,9 @@
     
     [UIView animateWithDuration:1.0f animations:^{
         textField.top += 100;
-    }];    
+    } completion:^(BOOL finished) {
+        textField.top -= 100;
+    }];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
