@@ -10,6 +10,9 @@
 
 @interface CreateTaskViewController : UITableViewController
 
+@property (nonatomic, retain) IBOutlet UITextField* taskName;
+@property (nonatomic, retain) IBOutlet UITextField* taskDescription;
+
 - (IBAction)cancel:(id)sender;
 
 @end
