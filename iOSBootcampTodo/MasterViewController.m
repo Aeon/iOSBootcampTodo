@@ -12,6 +12,8 @@
 
 #import "CreateTaskViewController.h"
 
+#import "TaskCell.h"
+
 @implementation MasterViewController
 
 - (void)awakeFromNib
@@ -62,16 +64,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TaskCell" forIndexPath:indexPath];
+    TaskCell *cell = [tableView
+                      dequeueReusableCellWithIdentifier:@"MyTaskCell"
+                      forIndexPath:indexPath];
 
     NSDictionary* taskItem = [self.taskItems objectAtIndex: indexPath.row];
 //    NSDictionary* taskItem = self.taskItems[indexPath.row];
-
-    UILabel* nameLabel = (UILabel*)[cell viewWithTag:101];
-    UILabel* descriptionLabel = (UILabel*)[cell viewWithTag:102];
     
-    nameLabel.text = [taskItem objectForKey:@"name"];
-    descriptionLabel.text = [taskItem objectForKey:@"description"];
+    cell.nameLabel.text = [taskItem objectForKey:@"name"];
+    cell.descLabel.text = [taskItem objectForKey:@"description"];
 
     return cell;
 }

@@ -28,6 +28,7 @@
 		3A398BA616B33F9900F36F8A /* HelloWorldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A398BA516B33F9900F36F8A /* HelloWorldViewController.m */; };
 		3A398BA916B35FBF00F36F8A /* CreateTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A398BA816B35FBF00F36F8A /* CreateTaskViewController.m */; };
 		3A398BAC16B45B2100F36F8A /* UIView+GeometryAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A398BAB16B45B2100F36F8A /* UIView+GeometryAdditions.m */; };
+		3A398BAF16B4A1B300F36F8A /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A398BAE16B4A1B300F36F8A /* TaskCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		3A398BA816B35FBF00F36F8A /* CreateTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateTaskViewController.m; path = ../CreateTaskViewController.m; sourceTree = "<group>"; };
 		3A398BAA16B45B2100F36F8A /* UIView+GeometryAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GeometryAdditions.h"; sourceTree = "<group>"; };
 		3A398BAB16B45B2100F36F8A /* UIView+GeometryAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GeometryAdditions.m"; sourceTree = "<group>"; };
+		3A398BAD16B4A1B200F36F8A /* TaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskCell.h; sourceTree = "<group>"; };
+		3A398BAE16B4A1B300F36F8A /* TaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,8 @@
 				3A398BA516B33F9900F36F8A /* HelloWorldViewController.m */,
 				3A398BA716B35FBF00F36F8A /* CreateTaskViewController.h */,
 				3A398BA816B35FBF00F36F8A /* CreateTaskViewController.m */,
+				3A398BAD16B4A1B200F36F8A /* TaskCell.h */,
+				3A398BAE16B4A1B300F36F8A /* TaskCell.m */,
 			);
 			path = iOSBootcampTodo;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 				3A398BA616B33F9900F36F8A /* HelloWorldViewController.m in Sources */,
 				3A398BA916B35FBF00F36F8A /* CreateTaskViewController.m in Sources */,
 				3A398BAC16B45B2100F36F8A /* UIView+GeometryAdditions.m in Sources */,
+				3A398BAF16B4A1B300F36F8A /* TaskCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
