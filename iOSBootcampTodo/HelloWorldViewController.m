@@ -50,6 +50,13 @@
     
     self.myLabel.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
     
+    UIView* grayView = [self.view viewWithTag:555];
+    
+    grayView.width = self.view.width - 20;
+    grayView.left = 10;
+    
+    grayView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    
 }
 
 - (void)didReceiveMemoryWarning
