@@ -53,7 +53,7 @@
 }
 
 -(IBAction)done:(id)sender {
-    NSLog(@"Done button pressed");
+    NSLog(@"Done button pressed: %@", self.delegate);
     
     // apple convention is to have the parent view
     // reponsible for dismissal of the child views

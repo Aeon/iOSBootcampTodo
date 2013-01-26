@@ -239,7 +239,7 @@
                     <navigationItem key="navigationItem" title="Master" id="36">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yfC-pm-HGf">
                             <connections>
-                                <segue destination="jcN-lL-4FM" kind="modal" id="2Ow-6d-8Ft"/>
+                                <segue destination="jcN-lL-4FM" kind="modal" identifier="createTask" id="2Ow-6d-8Ft"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

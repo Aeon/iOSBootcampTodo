@@ -10,6 +10,8 @@
 
 #import "DetailViewController.h"
 
+#import "CreateTaskViewController.h"
+
 @interface MasterViewController () {
     NSMutableArray *_objects;
 }
@@ -128,6 +130,17 @@
         NSDate *object = _objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }
+    
+    if ([[segue identifier] isEqualToString:@"createTask"]) {
+        // we want to set the CreateTaskController's delegate to "self"
+        
+        UINavigationController* navController = [segue destinationViewController];
+        
+        CreateTaskViewController* createTaskController = (CreateTaskViewController*)[navController.childViewControllers objectAtIndex:0];
+        
+        createTaskController.delegate = self;
+    }
 }
+
 
 @end
