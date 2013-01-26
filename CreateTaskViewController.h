@@ -14,5 +14,6 @@
 @property (nonatomic, retain) IBOutlet UITextField* taskDescription;
 
 - (IBAction)cancel:(id)sender;
+- (IBAction)done:(id)sender;
 
 @end

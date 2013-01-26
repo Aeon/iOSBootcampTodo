@@ -153,6 +153,11 @@
                                 <action selector="cancel:" destination="FCC-GY-pX1" id="QLt-Z7-F2R"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="9q4-5v-W6B">
+                            <connections>
+                                <action selector="done:" destination="FCC-GY-pX1" id="9yQ-g8-4w0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="taskDescription" destination="XxX-1c-HNH" id="87w-cp-hdZ"/>
@@ -276,6 +281,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateTaskViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="done:"/>
                 <relationship kind="outlet" name="taskDescription" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="taskName" candidateClass="UITextField"/>
             </relationships>

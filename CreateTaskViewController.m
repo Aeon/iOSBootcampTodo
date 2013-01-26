@@ -50,4 +50,14 @@
     }];
 }
 
+-(IBAction)done:(id)sender {
+    NSLog(@"Done button pressed");
+    
+    // apple convention is to have the parent view
+    // reponsible for dismissal of the child views
+    [self.navigationController.presentingViewController
+     dismissViewControllerAnimated:YES completion:^{
+     }];
+}
+
 @end
