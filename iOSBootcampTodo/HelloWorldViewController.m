@@ -100,8 +100,10 @@
     [textField resignFirstResponder];
     
     [UIView animateWithDuration:1.0f animations:^{
+        textField.transform = CGAffineTransformMakeRotation(M_PI);
         textField.top += 100;
     } completion:^(BOOL finished) {
+        textField.transform = CGAffineTransformIdentity;
         textField.top -= 100;
     }];
 }
