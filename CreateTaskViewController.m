@@ -54,6 +54,16 @@
 
 -(IBAction)done:(id)sender {
     NSLog(@"Done button pressed: %@", self.delegate);
+
+    // you can call instance method directly if you have a protocol that guarantees that the object has the called method
+    //[self.delegate addNewTodo:nil];
+    
+    // otherwise, use performSelector
+    // can use "respondsToSelector" to check whether an object is actually capable of performing the method
+    // methodname plus colon means method takes an argument
+    if (self.delegate && [self.delegate respondsToSelector:@selector(addNewTodo:)]) {
+        [self.delegate performSelector:@selector(addNewTodo:) withObject:nil];
+    }
     
     // apple convention is to have the parent view
     // reponsible for dismissal of the child views
