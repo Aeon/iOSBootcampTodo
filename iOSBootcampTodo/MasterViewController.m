@@ -67,7 +67,12 @@
     NSDictionary* taskItem = [self.taskItems objectAtIndex: indexPath.row];
 //    NSDictionary* taskItem = self.taskItems[indexPath.row];
 
-    // todo: configure cell view
+    UILabel* nameLabel = (UILabel*)[cell viewWithTag:101];
+    UILabel* descriptionLabel = (UILabel*)[cell viewWithTag:102];
+    
+    nameLabel.text = [taskItem objectForKey:@"name"];
+    descriptionLabel.text = [taskItem objectForKey:@"description"];
+
     return cell;
 }
 
