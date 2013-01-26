@@ -63,8 +63,6 @@
                                 description, @"description",
                                 nil
                               ];
-
-    NSLog(@"Task info: %@", taskDict);
     
     // mutable dictionaries can be done with NSMutableDictionary, normal ones are immutable
 
@@ -74,8 +72,8 @@
     // otherwise, use performSelector
     // can use "respondsToSelector" to check whether an object is actually capable of performing the method
     // methodname plus colon means method takes an argument
-    if (self.delegate && [self.delegate respondsToSelector:@selector(addNewTodo:)]) {
-        [self.delegate performSelector:@selector(addNewTodo:) withObject:taskDict];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(addNewTask:)]) {
+        [self.delegate performSelector:@selector(addNewTask:) withObject:taskDict];
     }
     
     // apple convention is to have the parent view

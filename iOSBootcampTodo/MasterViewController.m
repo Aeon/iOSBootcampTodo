@@ -142,5 +142,9 @@
     }
 }
 
+- (void) addNewTask:(NSDictionary*) taskDict {
+    NSLog(@"Task info: %@", taskDict);
+}
+
 
 @end
