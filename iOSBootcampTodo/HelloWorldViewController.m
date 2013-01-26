@@ -42,6 +42,11 @@
     
     [self.view addSubview:newbutton];
     
+    
+    UITextField* textField = (UITextField*)[self.view viewWithTag:333];
+    
+    textField.delegate = self;
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -94,4 +99,13 @@
     
     [textField resignFirstResponder];
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+
+    [textField resignFirstResponder];
+    
+    return NO;
+}
+
+
 @end
