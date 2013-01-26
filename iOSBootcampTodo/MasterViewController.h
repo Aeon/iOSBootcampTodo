@@ -14,4 +14,6 @@
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
+@property (nonatomic, retain) NSMutableArray* taskItems;
+
 @end

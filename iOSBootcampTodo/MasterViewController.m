@@ -12,11 +12,6 @@
 
 #import "CreateTaskViewController.h"
 
-@interface MasterViewController () {
-    NSMutableArray *_objects;
-}
-@end
-
 @implementation MasterViewController
 
 - (void)awakeFromNib
@@ -34,6 +29,10 @@
 	// Do any additional setup after loading the view, typically from a nib.
 
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    if(!self.taskItems) {
+        self.taskItems = [NSMutableArray arrayWithCapacity:10];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,17 +41,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender
+#pragma mark - Table View
+
+- (void)insertNewObject:(NSDictionary*)newTask
 {
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
-    }
-    [_objects insertObject:[NSDate date] atIndex:0];
+    [self.taskItems insertObject:newTask atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
-
-#pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -61,15 +57,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return self.taskItems.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TaskCell" forIndexPath:indexPath];
 
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    NSDictionary* taskItem = [self.taskItems objectAtIndex: indexPath.row];
+//    NSDictionary* taskItem = self.taskItems[indexPath.row];
+
+    // todo: configure cell view
     return cell;
 }
 
@@ -82,7 +80,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
+        [self.taskItems removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -108,16 +106,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        NSDate *object = _objects[indexPath.row];
+        NSDate *object = self.taskItems[indexPath.row];
         self.detailViewController.detailItem = object;
     }
 }
+
+#pragma mark - Segue tasks
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
+        NSDate *object = self.taskItems[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }
     
@@ -132,8 +132,11 @@
     }
 }
 
+#pragma mark - Todo management tasks
+
 - (void) addNewTask:(NSDictionary*) taskDict {
     NSLog(@"Task info: %@", taskDict);
+    [self insertNewObject:taskDict];
 }
 
 
