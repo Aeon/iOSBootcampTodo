@@ -16,4 +16,9 @@
 
 - (IBAction)buttonClickedSegue:(id)sender;
 
+- (IBAction)focus:(id)sender;
+
+- (IBAction)done:(id)sender;
+
+
 @end

@@ -83,4 +83,15 @@
     [self performSegueWithIdentifier:@"NavigateForward" sender: self];
 }
 
+-(IBAction)focus:(id)sender {
+    UITextField* textField = (UITextField*)[self.view viewWithTag:333];
+    
+    [textField becomeFirstResponder];
+}
+
+-(IBAction)done:(id)sender {
+    UITextField* textField = (UITextField*)[self.view viewWithTag:333];
+    
+    [textField resignFirstResponder];
+}
 @end
