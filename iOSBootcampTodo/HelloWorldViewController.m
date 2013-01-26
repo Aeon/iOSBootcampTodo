@@ -98,6 +98,10 @@
     UITextField* textField = (UITextField*)[self.view viewWithTag:333];
     
     [textField resignFirstResponder];
+    
+    [UIView animateWithDuration:1.0f animations:^{
+        textField.top += 100;
+    }];    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
