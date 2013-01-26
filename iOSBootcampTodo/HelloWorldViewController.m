@@ -55,7 +55,7 @@
     grayView.width = self.view.width - 20;
     grayView.left = 10;
     
-    grayView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    grayView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     
 }
 
