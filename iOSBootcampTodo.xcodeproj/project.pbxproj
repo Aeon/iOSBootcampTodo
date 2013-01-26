@@ -25,6 +25,9 @@
 		3A398B8D16B32DFB00F36F8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A398B6216B32DFB00F36F8A /* Foundation.framework */; };
 		3A398B9516B32DFB00F36F8A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A398B9316B32DFB00F36F8A /* InfoPlist.strings */; };
 		3A398B9816B32DFB00F36F8A /* iOSBootcampTodoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A398B9716B32DFB00F36F8A /* iOSBootcampTodoTests.m */; };
+		3A398BA616B33F9900F36F8A /* HelloWorldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A398BA516B33F9900F36F8A /* HelloWorldViewController.m */; };
+		3A398BA916B35FBF00F36F8A /* CreateTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A398BA816B35FBF00F36F8A /* CreateTaskViewController.m */; };
+		3A398BAC16B45B2100F36F8A /* UIView+GeometryAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A398BAB16B45B2100F36F8A /* UIView+GeometryAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,12 @@
 		3A398B9416B32DFB00F36F8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3A398B9616B32DFB00F36F8A /* iOSBootcampTodoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOSBootcampTodoTests.h; sourceTree = "<group>"; };
 		3A398B9716B32DFB00F36F8A /* iOSBootcampTodoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSBootcampTodoTests.m; sourceTree = "<group>"; };
+		3A398BA416B33F9900F36F8A /* HelloWorldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldViewController.h; sourceTree = "<group>"; };
+		3A398BA516B33F9900F36F8A /* HelloWorldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloWorldViewController.m; sourceTree = "<group>"; };
+		3A398BA716B35FBF00F36F8A /* CreateTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateTaskViewController.h; path = ../CreateTaskViewController.h; sourceTree = "<group>"; };
+		3A398BA816B35FBF00F36F8A /* CreateTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateTaskViewController.m; path = ../CreateTaskViewController.m; sourceTree = "<group>"; };
+		3A398BAA16B45B2100F36F8A /* UIView+GeometryAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GeometryAdditions.h"; sourceTree = "<group>"; };
+		3A398BAB16B45B2100F36F8A /* UIView+GeometryAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GeometryAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +140,10 @@
 				3A398B8116B32DFB00F36F8A /* DetailViewController.h */,
 				3A398B8216B32DFB00F36F8A /* DetailViewController.m */,
 				3A398B6716B32DFB00F36F8A /* Supporting Files */,
+				3A398BA416B33F9900F36F8A /* HelloWorldViewController.h */,
+				3A398BA516B33F9900F36F8A /* HelloWorldViewController.m */,
+				3A398BA716B35FBF00F36F8A /* CreateTaskViewController.h */,
+				3A398BA816B35FBF00F36F8A /* CreateTaskViewController.m */,
 			);
 			path = iOSBootcampTodo;
 			sourceTree = "<group>";
@@ -145,6 +158,8 @@
 				3A398B7216B32DFB00F36F8A /* Default.png */,
 				3A398B7416B32DFB00F36F8A /* Default@2x.png */,
 				3A398B7616B32DFB00F36F8A /* Default-568h@2x.png */,
+				3A398BAA16B45B2100F36F8A /* UIView+GeometryAdditions.h */,
+				3A398BAB16B45B2100F36F8A /* UIView+GeometryAdditions.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -283,6 +298,9 @@
 				3A398B7116B32DFB00F36F8A /* AppDelegate.m in Sources */,
 				3A398B8016B32DFB00F36F8A /* MasterViewController.m in Sources */,
 				3A398B8316B32DFB00F36F8A /* DetailViewController.m in Sources */,
+				3A398BA616B33F9900F36F8A /* HelloWorldViewController.m in Sources */,
+				3A398BA916B35FBF00F36F8A /* CreateTaskViewController.m in Sources */,
+				3A398BAC16B45B2100F36F8A /* UIView+GeometryAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
