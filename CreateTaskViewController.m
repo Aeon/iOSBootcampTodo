@@ -29,6 +29,7 @@
 	// Do any additional setup after loading the view.
 
     self.taskName.delegate = self;
+    self.taskDescription.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,7 +93,6 @@
         [textField resignFirstResponder];
     }
     return NO;
-
 }
 
 @end
