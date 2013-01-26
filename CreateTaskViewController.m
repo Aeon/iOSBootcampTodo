@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+
+    self.taskName.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,6 +60,18 @@
     [self.navigationController.presentingViewController
      dismissViewControllerAnimated:YES completion:^{
      }];
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if(textField == self.taskName) {
+        [self.taskDescription becomeFirstResponder];
+    } else {
+        [textField resignFirstResponder];
+    }
+    return NO;
+
 }
 
 @end

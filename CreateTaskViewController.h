@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CreateTaskViewController : UITableViewController
+@interface CreateTaskViewController : UITableViewController <UITextFieldDelegate>
 
 @property (nonatomic, retain) IBOutlet UITextField* taskName;
 @property (nonatomic, retain) IBOutlet UITextField* taskDescription;
