@@ -54,6 +54,19 @@
 
 -(IBAction)done:(id)sender {
     NSLog(@"Done button pressed: %@", self.delegate);
+    
+    NSString* name = self.taskName.text;
+    NSString* description = self.taskDescription.text;
+
+    NSDictionary* taskDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                name, @"name",
+                                description, @"description",
+                                nil
+                              ];
+
+    NSLog(@"Task info: %@", taskDict);
+    
+    // mutable dictionaries can be done with NSMutableDictionary, normal ones are immutable
 
     // you can call instance method directly if you have a protocol that guarantees that the object has the called method
     //[self.delegate addNewTodo:nil];
@@ -62,7 +75,7 @@
     // can use "respondsToSelector" to check whether an object is actually capable of performing the method
     // methodname plus colon means method takes an argument
     if (self.delegate && [self.delegate respondsToSelector:@selector(addNewTodo:)]) {
-        [self.delegate performSelector:@selector(addNewTodo:) withObject:nil];
+        [self.delegate performSelector:@selector(addNewTodo:) withObject:taskDict];
     }
     
     // apple convention is to have the parent view
