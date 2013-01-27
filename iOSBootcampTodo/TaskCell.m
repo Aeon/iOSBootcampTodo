@@ -20,6 +20,23 @@
     return self;
 }
 
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        
+        UILongPressGestureRecognizer* longPress = [[UILongPressGestureRecognizer alloc]
+                                                   initWithTarget:self action:@selector(longTouchDetected:)];
+        [self addGestureRecognizer:longPress];
+        
+    }
+    return self;
+}
+
+- (void) longTouchDetected:(UILongPressGestureRecognizer*)recognizer {
+    NSLog(@"Long press detected on a todo cell");
+}
+
 - (IBAction)toggleCheckButton:(id)sender {
     self.doneButton.selected = !self.doneButton.selected;
 
