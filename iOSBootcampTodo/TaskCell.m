@@ -33,8 +33,10 @@
 
 - (void) setTaskObject:(NSDictionary*)taskItem {
 
+//    self.nameLabel.text = taskItem[@"name"];
     self.nameLabel.text = [taskItem objectForKey:@"name"];
     self.descLabel.text = [taskItem objectForKey:@"description"];
+    self.doneButton.selected = [[taskItem objectForKey:@"complete"] boolValue];
     
     [self.doneButton
      setTitle: @"✓"

@@ -62,6 +62,7 @@
     NSDictionary* taskDict = [NSDictionary dictionaryWithObjectsAndKeys:
                                 name, @"name",
                                 description, @"description",
+                                [NSNumber numberWithInt:0], @"complete",
                                 nil
                               ];
     
