@@ -35,17 +35,26 @@
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
     if(!self.taskItems) {
-        PFQuery* query = [PFQuery queryWithClassName:@"TaskItem"];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error) {
-                self.taskItems = [NSMutableArray arrayWithArray:objects];
-                [self.tableView reloadData];
-            } else {
-                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:@"Could not get tasks from cloud" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                [alert show];
-            }
-        }];
+        [self loadTasks];
     }
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(loadTasks) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
+}
+
+- (void)loadTasks {
+    PFQuery* query = [PFQuery queryWithClassName:@"TaskItem"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            self.taskItems = [NSMutableArray arrayWithArray:objects];
+            [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
+        } else {
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:@"Could not get tasks from cloud" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,6 +67,7 @@
 
 - (void)insertNewObject:(NSDictionary*)newTask
 {
+    // copy item data from the task NSDict into the Parse object that lets us save/load data from cloud
     PFObject* parseTaskItem = [PFObject objectWithClassName:@"TaskItem"];
     [parseTaskItem setObject:[newTask objectForKey:@"name"] forKey:@"name"];
     [parseTaskItem setObject:[newTask objectForKey:@"description"] forKey:@"description"];
