@@ -15,8 +15,23 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        
+        [self.doneButton
+            setTitle: @"✓"
+            forState: UIControlStateSelected];
+        
+        [self.doneButton
+            addTarget:self
+            action:@selector(toggleCheckButton:)
+            forControlEvents:UIControlEventTouchUpInside
+         ];
+        
     }
     return self;
+}
+
+- (void) toggleCheckButton:(id)sender {
+    self.doneButton.selected = !self.doneButton.selected;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
