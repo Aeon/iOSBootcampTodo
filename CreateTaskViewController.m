@@ -59,12 +59,12 @@
     NSString* name = self.taskName.text;
     NSString* description = self.taskDescription.text;
 
-    NSDictionary* taskDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                                name, @"name",
-                                description, @"description",
-                                [NSNumber numberWithInt:0], @"complete",
-                                nil
-                              ];
+    NSMutableDictionary* taskDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                        name, @"name",
+                                        description, @"description",
+                                        [NSNumber numberWithInt:0], @"complete",
+                                        nil
+                                      ];
     
     // mutable dictionaries can be done with NSMutableDictionary, normal ones are immutable
 
