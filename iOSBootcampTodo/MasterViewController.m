@@ -14,6 +14,8 @@
 
 #import "TaskCell.h"
 
+#import <Parse/Parse.h>
+
 @implementation MasterViewController
 
 - (void)awakeFromNib
@@ -35,6 +37,10 @@
     if(!self.taskItems) {
         self.taskItems = [NSMutableArray arrayWithCapacity:10];
     }
+    
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    [testObject setObject:@"bar" forKey:@"foo"];
+    [testObject save];
 }
 
 - (void)didReceiveMemoryWarning
