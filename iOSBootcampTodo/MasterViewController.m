@@ -41,6 +41,25 @@
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(loadTasks) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
+
+    PFUser* currentUser = [PFUser currentUser];
+
+    
+    if(currentUser) {
+        NSLog(@"User is logged in with info: %@", currentUser);
+    } else {
+        // login/signup screen
+        PFLogInViewController* loginController = [[PFLogInViewController alloc] init];
+        loginController.fields = PFLogInFieldsFacebook | PFLogInFieldsLogInButton | PFLogInFieldsSignUpButton | PFLogInFieldsUsernameAndPassword;
+        
+        // tell parse framework to use the master controller as delegate for signup/login methods
+        loginController.delegate = self;
+        loginController.signUpController.delegate = self;
+        
+        [self presentViewController:loginController animated:YES completion:^{
+            
+        }];
+    }
 }
 
 - (void)loadTasks {
@@ -197,5 +216,22 @@
     [taskItem saveInBackground];
 }
 
+#pragma mark - Signup methods
+-(void) signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    NSLog(@"Signed up user with info: %@", user);
+}
 
+-(void) signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
+    NSLog(@"Failed to sign up user with error: %@", error);
+}
+
+#pragma mark - Login methods
+
+-(void) logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    NSLog(@"Logged in user with info: %@", user);
+}
+
+-(void) logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
+    NSLog(@"Failed to log in user with error: %@", error);
+}
 @end
