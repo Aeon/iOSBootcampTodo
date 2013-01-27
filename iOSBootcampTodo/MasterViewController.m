@@ -71,6 +71,8 @@
     NSDictionary* taskItem = [self.taskItems objectAtIndex: indexPath.row];
 //    NSDictionary* taskItem = self.taskItems[indexPath.row];
     
+    cell.delegate = self;
+    
     [cell setTaskObject:taskItem];
 
     return cell;
@@ -142,6 +144,10 @@
 - (void) addNewTask:(NSDictionary*) taskDict {
     NSLog(@"Task info: %@", taskDict);
     [self insertNewObject:taskDict];
+}
+
+- (void) markTaskCompleted {
+    
 }
 
 

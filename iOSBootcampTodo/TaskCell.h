@@ -19,4 +19,6 @@
 
 - (void) setTaskObject:(NSDictionary*)todo;
 
+@property (nonatomic, assign) id delegate;
+
 @end

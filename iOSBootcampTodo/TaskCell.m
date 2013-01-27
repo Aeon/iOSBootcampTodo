@@ -22,6 +22,12 @@
 
 - (IBAction)toggleCheckButton:(id)sender {
     self.doneButton.selected = !self.doneButton.selected;
+
+    NSIndexPath* indexPath = [(UITableView *)self.superview indexPathForCell:self];
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(markTaskCompleted:)]) {
+        [self.delegate performSelector:@selector(markTaskCompleted:) withObject:indexPath];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
