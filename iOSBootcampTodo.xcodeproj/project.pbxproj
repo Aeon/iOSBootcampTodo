@@ -45,6 +45,7 @@
 		3A398BCB16B4B70E00F36F8A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A398BCA16B4B70E00F36F8A /* SystemConfiguration.framework */; };
 		3A398BCE16B5CC2000F36F8A /* range@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A398BCC16B5CC2000F36F8A /* range@2x.jpg */; };
 		3A398BCF16B5CC2000F36F8A /* range.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A398BCD16B5CC2000F36F8A /* range.jpg */; };
+		3A398BD516B5CE3800F36F8A /* saturn.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3A398BD416B5CE3800F36F8A /* saturn.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		3A398BCA16B4B70E00F36F8A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3A398BCC16B5CC2000F36F8A /* range@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "range@2x.jpg"; sourceTree = "<group>"; };
 		3A398BCD16B5CC2000F36F8A /* range.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = range.jpg; sourceTree = "<group>"; };
+		3A398BD416B5CE3800F36F8A /* saturn.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = saturn.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 		3A398B6716B32DFB00F36F8A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3A398BD416B5CE3800F36F8A /* saturn.jpeg */,
 				3A398BCC16B5CC2000F36F8A /* range@2x.jpg */,
 				3A398BCD16B5CC2000F36F8A /* range.jpg */,
 				3A398B6816B32DFB00F36F8A /* iOSBootcampTodo-Info.plist */,
@@ -329,6 +332,7 @@
 				3A398B7D16B32DFB00F36F8A /* MainStoryboard_iPad.storyboard in Resources */,
 				3A398BCE16B5CC2000F36F8A /* range@2x.jpg in Resources */,
 				3A398BCF16B5CC2000F36F8A /* range.jpg in Resources */,
+				3A398BD516B5CE3800F36F8A /* saturn.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +567,7 @@
 				3A398B9D16B32DFB00F36F8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A398B9E16B32DFB00F36F8A /* Build configuration list for PBXNativeTarget "iOSBootcampTodoTests" */ = {
 			isa = XCConfigurationList;
@@ -571,6 +576,7 @@
 				3A398BA016B32DFB00F36F8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
