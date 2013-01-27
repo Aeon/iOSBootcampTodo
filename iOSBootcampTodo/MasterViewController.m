@@ -37,6 +37,15 @@
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(loadTasks) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
+    
+    // add an image button to top nav bar
+    UIImage* image = [UIImage imageNamed:@"range.jpg"];
+    UIButton* imageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [imageButton setImage: image forState:UIControlStateNormal];
+    [imageButton sizeToFit];
+//    UIImageView* imageView = [[UIImageView alloc] initWithImage:image];
+    UIBarButtonItem* steelButton = [[UIBarButtonItem alloc] initWithCustomView: imageButton];
+    self.navigationItem.leftBarButtonItem = steelButton;
 
     PFUser* currentUser = [PFUser currentUser];
 

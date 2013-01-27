@@ -43,6 +43,8 @@
 		3A398BC716B4B70000F36F8A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A398BC616B4B70000F36F8A /* Social.framework */; };
 		3A398BC916B4B70700F36F8A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A398BC816B4B70700F36F8A /* StoreKit.framework */; };
 		3A398BCB16B4B70E00F36F8A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A398BCA16B4B70E00F36F8A /* SystemConfiguration.framework */; };
+		3A398BCE16B5CC2000F36F8A /* range@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A398BCC16B5CC2000F36F8A /* range@2x.jpg */; };
+		3A398BCF16B5CC2000F36F8A /* range.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A398BCD16B5CC2000F36F8A /* range.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		3A398BC616B4B70000F36F8A /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3A398BC816B4B70700F36F8A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3A398BCA16B4B70E00F36F8A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3A398BCC16B5CC2000F36F8A /* range@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "range@2x.jpg"; sourceTree = "<group>"; };
+		3A398BCD16B5CC2000F36F8A /* range.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = range.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +216,8 @@
 		3A398B6716B32DFB00F36F8A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3A398BCC16B5CC2000F36F8A /* range@2x.jpg */,
+				3A398BCD16B5CC2000F36F8A /* range.jpg */,
 				3A398B6816B32DFB00F36F8A /* iOSBootcampTodo-Info.plist */,
 				3A398B6916B32DFB00F36F8A /* InfoPlist.strings */,
 				3A398B6C16B32DFB00F36F8A /* main.m */,
@@ -321,6 +327,8 @@
 				3A398B7716B32DFB00F36F8A /* Default-568h@2x.png in Resources */,
 				3A398B7A16B32DFB00F36F8A /* MainStoryboard_iPhone.storyboard in Resources */,
 				3A398B7D16B32DFB00F36F8A /* MainStoryboard_iPad.storyboard in Resources */,
+				3A398BCE16B5CC2000F36F8A /* range@2x.jpg in Resources */,
+				3A398BCF16B5CC2000F36F8A /* range.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
