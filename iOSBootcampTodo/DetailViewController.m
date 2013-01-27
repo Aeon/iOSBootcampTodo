@@ -47,6 +47,10 @@
     [self configureView];
     
     self.scrollView.contentSize = CGSizeMake(800, 800);
+    
+    
+    // implement scrollview delegate methods if we want to listen to scroll events and do stuff based on them
+//    self.scrollView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
