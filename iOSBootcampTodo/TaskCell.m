@@ -29,6 +29,7 @@
                                                    initWithTarget:self action:@selector(longTouchDetected:)];
         [self addGestureRecognizer:longPress];
         
+        /*
         UIScrollView* scroller = [[UIScrollView alloc]
                                   initWithFrame:self.bounds];
         
@@ -40,7 +41,8 @@
         scroller.delegate = self;
         
         // move the contents of this cell into the content view of the scroller
-        [scroller addSubview:self.contentView];        
+        [scroller addSubview:self.contentView];    
+ */
     }
     return self;
 }
