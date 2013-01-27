@@ -35,7 +35,15 @@
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
     if(!self.taskItems) {
-        self.taskItems = [NSMutableArray arrayWithCapacity:10];
+        PFQuery* query = [PFQuery queryWithClassName:@"TaskItem"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                self.taskItems = [NSMutableArray arrayWithArray:objects];
+            } else {
+                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:@"Could not get tasks from cloud" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                [alert show];
+            }
+        }];
     }
     
     PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
