@@ -146,8 +146,10 @@
     [self insertNewObject:taskDict];
 }
 
-- (void) markTaskCompleted {
-    
+- (void) markTaskCompleted:(NSIndexPath*)taskPath {
+    int row = [taskPath row];
+    NSMutableDictionary* taskItem = [self.taskItems objectAtIndex:row];
+    [taskItem setObject:[NSNumber numberWithInt:1] forKey:@"complete"];
 }
 
 
