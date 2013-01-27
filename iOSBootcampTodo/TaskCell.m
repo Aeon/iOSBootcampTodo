@@ -16,21 +16,11 @@
     if (self) {
         // Initialization code
         
-        [self.doneButton
-            setTitle: @"✓"
-            forState: UIControlStateSelected];
-        
-        [self.doneButton
-            addTarget:self
-            action:@selector(toggleCheckButton:)
-            forControlEvents:UIControlEventTouchUpInside
-         ];
-        
     }
     return self;
 }
 
-- (void) toggleCheckButton:(id)sender {
+- (IBAction)toggleCheckButton:(id)sender {
     self.doneButton.selected = !self.doneButton.selected;
 }
 
@@ -45,6 +35,10 @@
 
     self.nameLabel.text = [taskItem objectForKey:@"name"];
     self.descLabel.text = [taskItem objectForKey:@"description"];
+    
+    [self.doneButton
+     setTitle: @"✓"
+     forState: UIControlStateSelected];
     
 }
 

@@ -15,6 +15,8 @@
 
 @property (nonatomic, retain) IBOutlet UIButton* doneButton;
 
+- (IBAction)toggleCheckButton:(id)sender;
+
 - (void) setTaskObject:(NSDictionary*)todo;
 
 @end
