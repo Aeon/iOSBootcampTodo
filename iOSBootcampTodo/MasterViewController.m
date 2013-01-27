@@ -39,6 +39,7 @@
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 self.taskItems = [NSMutableArray arrayWithArray:objects];
+                [self.tableView reloadData];
             } else {
                 UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:@"Could not get tasks from cloud" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
                 [alert show];
