@@ -187,13 +187,14 @@
 
 - (void) markTaskCompleted:(NSIndexPath*)taskPath {
     int row = [taskPath row];
-    NSMutableDictionary* taskItem = [self.taskItems objectAtIndex:row];
+    PFObject* taskItem = [self.taskItems objectAtIndex:row];
 
     NSNumber* complete = [taskItem objectForKey:@"complete"];
     
     complete = [complete boolValue] ? [NSNumber numberWithInt:0] : [NSNumber numberWithInt:1];
     
     [taskItem setObject:complete forKey:@"complete"];
+    [taskItem saveInBackground];
 }
 
 
