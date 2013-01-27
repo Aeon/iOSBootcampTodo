@@ -45,6 +45,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+    
+    self.scrollView.contentSize = CGSizeMake(800, 800);
 }
 
 - (void)didReceiveMemoryWarning
