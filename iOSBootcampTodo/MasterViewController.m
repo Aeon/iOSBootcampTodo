@@ -61,7 +61,20 @@
 
 - (void)insertNewObject:(NSDictionary*)newTask
 {
-    [self.taskItems insertObject:newTask atIndex:0];
+    PFObject* parseTaskItem = [PFObject objectWithClassName:@"TaskItem"];
+    [parseTaskItem setObject:[newTask objectForKey:@"name"] forKey:@"name"];
+    [parseTaskItem setObject:[newTask objectForKey:@"description"] forKey:@"description"];
+    [parseTaskItem setObject:[newTask objectForKey:@"complete"] forKey:@"complete"];
+
+    [self.taskItems insertObject:parseTaskItem atIndex:0];
+    [parseTaskItem saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(error) {
+            NSLog(@"Could not save object to parse: error %@", error);
+        } else {
+            NSLog(@"Saved object to parse: %@", parseTaskItem);
+        }
+    }];
+
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
