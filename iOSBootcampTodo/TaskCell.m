@@ -41,4 +41,11 @@
     // Configure the view for the selected state
 }
 
+- (void) setTaskObject:(NSDictionary*)taskItem {
+
+    self.nameLabel.text = [taskItem objectForKey:@"name"];
+    self.descLabel.text = [taskItem objectForKey:@"description"];
+    
+}
+
 @end

@@ -71,8 +71,7 @@
     NSDictionary* taskItem = [self.taskItems objectAtIndex: indexPath.row];
 //    NSDictionary* taskItem = self.taskItems[indexPath.row];
     
-    cell.nameLabel.text = [taskItem objectForKey:@"name"];
-    cell.descLabel.text = [taskItem objectForKey:@"description"];
+    [cell setTaskObject:taskItem];
 
     return cell;
 }

@@ -15,4 +15,6 @@
 
 @property (nonatomic, retain) IBOutlet UIButton* doneButton;
 
+- (void) setTaskObject:(NSDictionary*)todo;
+
 @end
