@@ -29,12 +29,31 @@
                                                    initWithTarget:self action:@selector(longTouchDetected:)];
         [self addGestureRecognizer:longPress];
         
+        UIScrollView* scroller = [[UIScrollView alloc]
+                                  initWithFrame:self.bounds];
+        
+        [self addSubview:scroller];
+
+        scroller.alwaysBounceHorizontal = YES;
+        scroller.showsHorizontalScrollIndicator = NO;
+        
+        scroller.delegate = self;
+        
+        // move the contents of this cell into the content view of the scroller
+        [scroller addSubview:self.contentView];        
     }
     return self;
 }
 
 - (void) longTouchDetected:(UILongPressGestureRecognizer*)recognizer {
     NSLog(@"Long press detected on a todo cell");
+}
+
+- (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    NSLog(@"Finished scrolling cell at offset %f", scrollView.contentOffset.x);
+    if (scrollView.contentOffset.x < -50) {
+        [self toggleCheckButton:scrollView];
+    }
 }
 
 - (IBAction)toggleCheckButton:(id)sender {

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TaskCell : UITableViewCell
+@interface TaskCell : UITableViewCell <UIScrollViewDelegate>
 
 @property (nonatomic, retain) IBOutlet UILabel* nameLabel;
 @property (nonatomic, retain) IBOutlet UILabel* descLabel;
