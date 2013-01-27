@@ -149,7 +149,12 @@
 - (void) markTaskCompleted:(NSIndexPath*)taskPath {
     int row = [taskPath row];
     NSMutableDictionary* taskItem = [self.taskItems objectAtIndex:row];
-    [taskItem setObject:[NSNumber numberWithInt:1] forKey:@"complete"];
+
+    NSNumber* complete = [taskItem objectForKey:@"complete"];
+    
+    complete = [complete boolValue] ? [NSNumber numberWithInt:0] : [NSNumber numberWithInt:1];
+    
+    [taskItem setObject:complete forKey:@"complete"];
 }
 
 
