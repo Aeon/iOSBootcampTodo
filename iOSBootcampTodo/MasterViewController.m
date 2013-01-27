@@ -34,36 +34,36 @@
 
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
-    if(!self.taskItems) {
-        [self loadTasks];
-    }
-    
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(loadTasks) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
 
     PFUser* currentUser = [PFUser currentUser];
 
-    
     if(currentUser) {
         NSLog(@"User is logged in with info: %@", currentUser);
+
+        if(!self.taskItems) {
+            [self loadTasks];
+        }
+
     } else {
         // login/signup screen
         PFLogInViewController* loginController = [[PFLogInViewController alloc] init];
         loginController.fields = PFLogInFieldsFacebook | PFLogInFieldsLogInButton | PFLogInFieldsSignUpButton | PFLogInFieldsUsernameAndPassword;
-        
+
         // tell parse framework to use the master controller as delegate for signup/login methods
         loginController.delegate = self;
         loginController.signUpController.delegate = self;
-        
+
         [self presentViewController:loginController animated:YES completion:^{
-            
         }];
     }
 }
 
 - (void)loadTasks {
     PFQuery* query = [PFQuery queryWithClassName:@"TaskItem"];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.taskItems = [NSMutableArray arrayWithArray:objects];
@@ -91,6 +91,14 @@
     [parseTaskItem setObject:[newTask objectForKey:@"name"] forKey:@"name"];
     [parseTaskItem setObject:[newTask objectForKey:@"description"] forKey:@"description"];
     [parseTaskItem setObject:[newTask objectForKey:@"complete"] forKey:@"complete"];
+    [parseTaskItem setObject:[PFUser currentUser] forKey:@"user"];
+    
+    PFACL* acl = [[PFACL alloc] init];
+    [acl setPublicReadAccess:NO];
+    [acl setPublicWriteAccess:NO];
+    [acl setWriteAccess:YES forUser:[PFUser currentUser]];
+    [acl setReadAccess:YES forUser:[PFUser currentUser]];
+    [parseTaskItem setACL:acl];
 
     [self.taskItems insertObject:parseTaskItem atIndex:0];
     [parseTaskItem saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -229,6 +237,9 @@
 
 -(void) logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     NSLog(@"Logged in user with info: %@", user);
+    if(!self.taskItems) {
+        [self loadTasks];
+    }
 }
 
 -(void) logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
