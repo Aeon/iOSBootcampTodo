@@ -59,6 +59,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (IBAction)doubleTapped:(UIGestureRecognizer*)recognizer {
+    
+    NSLog(@"image was double tapped");
+    
+}
+
 #pragma mark - Split view
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController

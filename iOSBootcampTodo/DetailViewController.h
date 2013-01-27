@@ -16,4 +16,6 @@
 
 @property (nonatomic, retain) IBOutlet UIScrollView* scrollView;
 
+- (IBAction)doubleTapped:(UIGestureRecognizer*)recognizer;
+
 @end
